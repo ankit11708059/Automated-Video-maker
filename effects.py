@@ -19,13 +19,28 @@ from PIL import Image, ImageDraw, ImageFont, ImageFilter
 
 W, H = 1080, 1920
 
-# ─── Asset path ───────────────────────────────────────────────────────────────
-_FONT_DISPLAY = os.path.join(os.path.dirname(__file__), "fonts", "BebasNeue.ttf")
-_FONT_BOLD    = r"C:\Windows\Fonts\arialbd.ttf"
+# ─── Asset paths (cross-platform) ────────────────────────────────────────────
+_FONT_DISPLAY = os.path.join(os.path.dirname(os.path.abspath(__file__)), "fonts", "BebasNeue.ttf")
+
+def _find(candidates):
+    for p in candidates:
+        if p and os.path.exists(p): return p
+    return None
+
+_FONT_BOLD = _find([
+    r"C:\Windows\Fonts\arialbd.ttf",
+    "/usr/share/fonts/truetype/liberation/LiberationSans-Bold.ttf",
+    "/usr/share/fonts/liberation/LiberationSans-Bold.ttf",
+    "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf",
+])
 
 def _font(path, size):
-    try:    return ImageFont.truetype(path, size)
-    except: return ImageFont.truetype(_FONT_BOLD, size)
+    for p in [path, _FONT_BOLD, _FONT_DISPLAY]:
+        try:
+            if p: return ImageFont.truetype(p, size)
+        except Exception:
+            pass
+    return ImageFont.load_default()
 
 # ─── Fixed random data (seeded — same every render) ──────────────────────────
 _rng  = np.random.default_rng(777)

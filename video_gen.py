@@ -26,16 +26,42 @@ from config import VIDEO_WIDTH as W, VIDEO_HEIGHT as H, VIDEO_FPS, CACHE_DIR
 
 import effects as fx
 
-# ─── Font helpers ─────────────────────────────────────────────────────────────
+# ─── Font helpers (cross-platform: Windows + Linux CI) ───────────────────────
 
-_FONT_DISPLAY = os.path.join(os.path.dirname(os.path.abspath(__file__)), "fonts", "BebasNeue.ttf")
-_FONT_BOLD    = r"C:\Windows\Fonts\arialbd.ttf"
-_FONT_NORMAL  = r"C:\Windows\Fonts\arial.ttf"
+_HERE = os.path.dirname(os.path.abspath(__file__))
+_FONT_DISPLAY = os.path.join(_HERE, "fonts", "BebasNeue.ttf")
+
+def _find(candidates):
+    for p in candidates:
+        if p and os.path.exists(p):
+            return p
+    return None
+
+_FONT_BOLD = _find([
+    r"C:\Windows\Fonts\arialbd.ttf",
+    "/usr/share/fonts/truetype/liberation/LiberationSans-Bold.ttf",
+    "/usr/share/fonts/liberation/LiberationSans-Bold.ttf",
+    "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf",
+])
+_FONT_NORMAL = _find([
+    r"C:\Windows\Fonts\arial.ttf",
+    "/usr/share/fonts/truetype/liberation/LiberationSans-Regular.ttf",
+    "/usr/share/fonts/liberation/LiberationSans-Regular.ttf",
+    "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf",
+])
 
 def _f(size, bold=True, display=False):
     path = _FONT_DISPLAY if display else (_FONT_BOLD if bold else _FONT_NORMAL)
-    try:    return ImageFont.truetype(path, size)
-    except: return ImageFont.truetype(_FONT_BOLD, size)
+    try:
+        if path: return ImageFont.truetype(path, size)
+    except Exception:
+        pass
+    for fallback in [_FONT_BOLD, _FONT_NORMAL, _FONT_DISPLAY]:
+        try:
+            if fallback: return ImageFont.truetype(fallback, size)
+        except Exception:
+            pass
+    return ImageFont.load_default()
 
 # ─── Stat-line detector ───────────────────────────────────────────────────────
 
