@@ -53,27 +53,23 @@ def _get_yt():
 
 
 def _sanitize_tags(tags: list[str]) -> list[str]:
-    """
-    YouTube tag rules:
-    - ASCII only (Hindi/Unicode chars cause 'invalidTags' error)
-    - Max 30 chars per tag
-    - Max 500 chars total across all tags
-    - Only alphanumeric, spaces, hyphens, apostrophes
-    """
+    """Strict YouTube-safe tags: ASCII letters/digits/spaces only, max 25 chars each."""
     clean, total = [], 0
+    seen = set()
     for t in tags:
-        # Force ASCII — drop any non-ASCII characters entirely
+        # Strip to pure ASCII
         t = t.encode("ascii", "ignore").decode("ascii")
-        # Keep only safe characters
-        t = re.sub(r"[^a-zA-Z0-9\s\-\']", "", t).strip().lower()
-        # Collapse multiple spaces
-        t = re.sub(r"\s+", " ", t)
-        if not t or len(t) > 30:
+        # Only a-z, 0-9, spaces — no hyphens, apostrophes, special chars
+        t = re.sub(r"[^a-z0-9 ]", "", t.lower()).strip()
+        t = re.sub(r" +", " ", t)
+        if not t or len(t) < 2 or len(t) > 25 or t in seen:
             continue
-        if total + len(t) + 1 > 490:
+        if total + len(t) + 1 > 450:
             break
         clean.append(t)
+        seen.add(t)
         total += len(t) + 1
+    print(f"  Tags after sanitize ({len(clean)}): {clean}")
     return clean
 
 
@@ -121,9 +117,9 @@ def upload_video(video_path: str, title: str, seo_description: str, tags: list[s
                 "title":                title[:100],
                 "description":          desc,
                 "tags":                 clean,
-                "categoryId":           "25",       # News & Politics
-                "defaultLanguage":      "en",
-                "defaultAudioLanguage": "en",
+                "categoryId":           "25",
+                "defaultLanguage":      "hi",
+                "defaultAudioLanguage": "hi",
             },
             "status": {
                 "privacyStatus":           "public",
