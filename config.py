@@ -9,12 +9,12 @@ if os.path.exists(_env_file):
             _k, _v = _line.split("=", 1)
             os.environ.setdefault(_k.strip(), _v.strip())
 
-# ─── API Keys (from env vars — set in GitHub Secrets or local .env) ───────────
-ELEVENLABS_API_KEY = os.getenv("ELEVENLABS_API_KEY", "")
-PEXELS_API_KEY     = os.getenv("PEXELS_API_KEY",     "")
-STABILITY_API_KEY  = os.getenv("STABILITY_API_KEY",  "")
-ANTHROPIC_API_KEY  = os.getenv("ANTHROPIC_API_KEY",  "")
-GEMINI_API_KEY     = os.getenv("GEMINI_API_KEY",     "")
+# ─── API Keys — strip() prevents InvalidHeader if secret has trailing whitespace ─
+ELEVENLABS_API_KEY = os.getenv("ELEVENLABS_API_KEY", "").strip()
+PEXELS_API_KEY     = os.getenv("PEXELS_API_KEY",     "").strip()
+STABILITY_API_KEY  = os.getenv("STABILITY_API_KEY",  "").strip()
+ANTHROPIC_API_KEY  = os.getenv("ANTHROPIC_API_KEY",  "").strip()
+GEMINI_API_KEY     = os.getenv("GEMINI_API_KEY",     "").strip()
 
 # ─── Voice preferences ────────────────────────────────────────────────────────
 # Aryaveer/Yatin = Indian voices (ElevenLabs Creator plan required)
