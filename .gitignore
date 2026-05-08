@@ -1,0 +1,33 @@
+# Rendered videos and audio — too large for git
+output/
+cache/
+
+# YouTube OAuth tokens — NEVER commit these
+*.pickle
+client_secrets.json
+world_finance_token.pickle
+youtube_token.pickle
+
+# Local secrets — NEVER commit
+.env
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.env
+
+# Temp files from renderer
+*.raw
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs that change every run (keep the JSON logs for dedup)
+*.log
+
+# Large media
+*.mp4
+*.mp3
+*.wav

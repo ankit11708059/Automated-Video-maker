@@ -1,0 +1,46 @@
+name: Crypto — Hindi (Every 6 Hours)
+
+on:
+  schedule:
+    - cron: "0 */6 * * *"   # 00:00, 06:00, 12:00, 18:00 UTC
+  workflow_dispatch:
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install system deps
+        run: sudo apt-get install -y ffmpeg fonts-liberation fonts-noto
+
+      - name: Install Python deps
+        run: pip install -r requirements.txt
+
+      - name: Decode YouTube token
+        run: echo "$YOUTUBE_TOKEN" | base64 -d > youtube_token.pickle
+        env:
+          YOUTUBE_TOKEN: ${{ secrets.YOUTUBE_TOKEN }}
+
+      - name: Run crypto pipeline
+        env:
+          ELEVENLABS_API_KEY: ${{ secrets.ELEVENLABS_API_KEY }}
+          PEXELS_API_KEY:     ${{ secrets.PEXELS_API_KEY }}
+          ANTHROPIC_API_KEY:  ${{ secrets.ANTHROPIC_API_KEY }}
+          YOUTUBE_TOKEN:      ${{ secrets.YOUTUBE_TOKEN }}
+        run: python auto_crypto.py
+
+      - name: Commit upload log
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add crypto_log.json
+          git diff --staged --quiet || git commit -m "log: crypto upload [skip ci]"
+          git push
