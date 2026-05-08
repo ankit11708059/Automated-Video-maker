@@ -84,7 +84,7 @@ D. HINDI LANGUAGE SEARCHES: "share market khabar", "kaunsa stock kharide", "shar
 E. QUESTION BASED: is company a good investment, should i buy company stock, company share price target
 F. SHORTS DISCOVERY: "stock market shorts hindi", "share market shorts", "finance shorts hindi", "investment shorts india", "trading shorts hindi"
 
-Rule: Each tag max 30 chars, no special characters, all lowercase.
+Rule: Each tag max 30 chars, all lowercase, ENGLISH/ROMAN LETTERS ONLY — no Hindi Devanagari, no special characters, no emoji. Tags must be ASCII-safe for YouTube API.
 
 PART 5 - YOUTUBE DESCRIPTION (SEO-optimised, ~200 words)
 FIRST LINE (150 chars max): company share price today date - key number percent movement - reason brief
@@ -155,7 +155,7 @@ D. HINDI SEARCHES: "bitcoin aaj ka bhav", "crypto mein invest karna chahiye", "k
 E. QUESTION BASED: is coin good investment india, should i buy coin in india, bitcoin 2026 mein kya hoga, crypto safe hai ya nahi
 F. SHORTS DISCOVERY: "crypto shorts hindi", "bitcoin shorts india", "cryptocurrency shorts", "crypto news shorts", "bitcoin news shorts hindi"
 
-Rule: Each tag max 30 chars, no special characters, all lowercase.
+Rule: Each tag max 30 chars, all lowercase, ENGLISH/ROMAN LETTERS ONLY — no Hindi Devanagari, no special characters, no emoji. Tags must be ASCII-safe for YouTube API.
 
 PART 5 - YOUTUBE DESCRIPTION (~200 words, SEO)
 First line: coin price today India - key fact - date crypto news Hindi

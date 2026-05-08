@@ -53,12 +53,23 @@ def _get_yt():
 
 
 def _sanitize_tags(tags: list[str]) -> list[str]:
+    """
+    YouTube tag rules:
+    - ASCII only (Hindi/Unicode chars cause 'invalidTags' error)
+    - Max 30 chars per tag
+    - Max 500 chars total across all tags
+    - Only alphanumeric, spaces, hyphens, apostrophes
+    """
     clean, total = [], 0
     for t in tags:
-        t = re.sub(r"[^\w\s\-\']", "", t, flags=re.UNICODE).strip()
+        # Force ASCII — drop any non-ASCII characters entirely
+        t = t.encode("ascii", "ignore").decode("ascii")
+        # Keep only safe characters
+        t = re.sub(r"[^a-zA-Z0-9\s\-\']", "", t).strip().lower()
+        # Collapse multiple spaces
+        t = re.sub(r"\s+", " ", t)
         if not t or len(t) > 30:
             continue
-        # YouTube: 500 char total limit across all tags
         if total + len(t) + 1 > 490:
             break
         clean.append(t)
