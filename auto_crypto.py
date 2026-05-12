@@ -15,6 +15,7 @@ from script_gen    import make_timed_segments
 from audio_gen     import generate_audio, get_best_voice
 from video_gen     import create_video
 from yt_upload     import upload_video
+from ig_upload     import upload_reel
 
 LOG_PATH   = os.path.join(os.path.dirname(os.path.abspath(__file__)), "crypto_log.json")
 TOKEN_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), "youtube_token.pickle")
@@ -135,15 +136,31 @@ def main():
         import traceback; traceback.print_exc()
         sys.exit(1)
 
+    print("\n[7] Uploading to Instagram...")
+    ig_caption = (
+        f"{script['viral_title']}\n\n"
+        "#crypto #bitcoin #cryptocurrency #blockchain #btc #altcoins "
+        "#defi #web3 #cryptonews #cryptoindia #cryptotrading #binance "
+        "#coinmarket #cryptohindi #bitcoinnews"
+    )
+    try:
+        ig_url = upload_reel(output_path, ig_caption)
+    except Exception as e:
+        print(f"  IG UPLOAD ERROR: {e}")
+        ig_url = None
+
     _save_log({
         "url":         story["url"],
         "title":       story["title"],
         "yt_url":      yt_url,
+        "ig_url":      ig_url,
         "uploaded_at": datetime.now(timezone.utc).isoformat(),
     })
 
     print(f"\n{'='*60}")
-    print(f"  DONE  ->  {yt_url}")
+    print(f"  YouTube  ->  {yt_url}")
+    if ig_url:
+        print(f"  Instagram ->  {ig_url}")
     print(f"{'='*60}")
 
 
