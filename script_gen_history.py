@@ -91,34 +91,40 @@ PART 1 — VIDEO METADATA
               This is used for deduplication. Keep it short (2-6 words).
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-PART 2 — AUDIO SCRIPT (English, ~150 words, ~60 seconds spoken)
+PART 2 — AUDIO SCRIPT (English, EXACTLY 95-115 words, ~45-50s spoken)
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-Atmospheric, cinematic English. Short sentences. Dramatic pauses (use commas and
-ellipses to guide ElevenLabs delivery). NEVER start with "Did you know" or
-"Imagine if". Write like you are whispering a forbidden secret to one person.
+CRITICAL PACING: This script is read by ElevenLabs at a normal pace. We want
+the final audio to feel UNHURRIED and DRAMATIC, not rushed. Aim for ~50s of
+spoken audio. Use ellipses (...) liberally to force dramatic pauses. Use short
+sentences. Use commas to control breath. Aim for ~95-115 words TOTAL.
 
-HOOK (0-5s) — Pattern interrupt + instant intrigue + curiosity gap:
-  Example openers:
-  "In 1587, an entire colony of one hundred and fifteen people... vanished overnight."
-  "Beneath the ocean floor near Japan lies a structure... that should not exist."
-  "There is a manuscript no human alive can read."
-  "Archaeologists in Turkey unearthed something... that rewrites human history."
+Atmospheric, cinematic English. NEVER start with "Did you know" or "Imagine if".
+Write like you are whispering a forbidden secret to one person. Trust the
+silence — leave room for the images to land.
 
-CURIOSITY GAP BRIDGE (5-15s):
-  • Establish what is known (authority signal — give a date, place, name)
-  • Plant the central question without answering it yet
-  • Tease the strangest detail
+HOOK (0-6s, ~12-15 words):
+  Pattern interrupt + instant intrigue. Use ellipses for dramatic pause.
+  Examples:
+  "In 1587... an entire colony of one hundred and fifteen people vanished."
+  "Beneath the ocean near Japan... lies a structure that should not exist."
+  "There exists a manuscript... that no human alive can read."
 
-REVEAL + DETAILS (15-45s):
-  • Deliver the specific mystery: who, what, when, where
-  • The strangest evidence or detail (a specific number, name, artifact)
-  • Pattern interrupt: a competing theory or unexpected contrast
-  • Build toward the cliffhanger ("And then... they found this.")
+CURIOSITY GAP BRIDGE (6-18s, ~20-25 words):
+  Establish the place, date, or name. Plant the central question. Hint at
+  the strangest detail without revealing it yet.
 
-CTA (45-60s):
-  • Land the emotional weight ("To this day, no one knows what happened.")
-  • Open question that demands a comment ("What do YOU think happened?")
-  • Subscribe ask tied to the niche ("Follow for more lost history every day.")
+REVEAL + STRANGEST DETAIL (18-38s, ~40-50 words):
+  Deliver the specific mystery: who, what, when, where, the strangest evidence.
+  Include a specific number, name, or artifact. Use one pattern-interrupt line
+  (an unexpected contrast or competing theory). Build to the cliffhanger.
+
+CTA (38-50s, ~20-25 words):
+  Land the emotional weight ("To this day... no one knows.")
+  Open question demanding a comment ("What do you think happened?")
+  Subscribe ask ("Follow for more lost history.")
+
+WORD-COUNT DISCIPLINE: Count your words. 95-115 total. If you go over 115,
+cut adjectives. Brevity is power in this niche.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 PART 3 — VIRAL TITLE ENGINEERING (3 options → self-select best)
@@ -147,7 +153,7 @@ image_type: pick from "breaking", "company", "market", "cta" — semantic mappin
   • "market"   → evidence/detail scene (maps, documents, ruins detail)
   • "cta"      → closing/atmospheric scene (sunset over ruins, dark, mysterious)
 
-time_weight: word count in that audio section (all 4 must sum to ~150)
+time_weight: word count in that audio section (all 4 must sum to ~105, matching script word count)
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 PART 5 — SEO TAGS (exactly 30 tags)
@@ -200,10 +206,10 @@ OUTPUT — VALID JSON ONLY, no markdown, no explanation:
   ],
   "viral_title":  "...",
   "sections": [
-    {{"image_type": "breaking", "time_weight": 25, "lines": ["LINE 1", "Line 2", "Line 3"]}},
-    {{"image_type": "company",  "time_weight": 45, "lines": ["LINE 1", "Line 2", "Line 3"]}},
+    {{"image_type": "breaking", "time_weight": 14, "lines": ["LINE 1", "Line 2", "Line 3"]}},
+    {{"image_type": "company",  "time_weight": 25, "lines": ["LINE 1", "Line 2", "Line 3"]}},
     {{"image_type": "market",   "time_weight": 45, "lines": ["LINE 1", "Line 2", "Line 3"]}},
-    {{"image_type": "cta",      "time_weight": 35, "lines": ["LINE 1", "Line 2", "Line 3"]}}
+    {{"image_type": "cta",      "time_weight": 22, "lines": ["LINE 1", "Line 2", "Line 3"]}}
   ],
   "tags":        ["tag1","tag2","tag3","tag4","tag5","tag6","tag7","tag8","tag9","tag10","tag11","tag12","tag13","tag14","tag15","tag16","tag17","tag18","tag19","tag20","tag21","tag22","tag23","tag24","tag25","tag26","tag27","tag28","tag29","tag30"],
   "description": "...",

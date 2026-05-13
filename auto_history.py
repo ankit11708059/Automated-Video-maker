@@ -9,11 +9,10 @@ from datetime import datetime, timezone
 from moviepy import AudioFileClip
 
 from config              import OUTPUT_DIR, CACHE_DIR
-from news_fetcher        import fetch_section_images
+from history_visuals     import fetch_history_images
 from script_gen_history  import generate_history_short
-from script_gen          import make_timed_segments
 from audio_gen           import generate_audio, get_best_voice
-from video_gen           import create_video
+from video_gen_history   import create_video, sections_to_segments
 from yt_upload_history   import upload_video
 from ig_upload           import upload_reel
 
@@ -86,7 +85,7 @@ def main():
     output_path = os.path.join(OUTPUT_DIR, f"history_{slug}_short.mp4")
 
     print("\n[2] Fetching atmospheric background images...")
-    section_images = fetch_section_images(script["pexels_query"], seed=0)
+    section_images = fetch_history_images(script["pexels_query"], seed=0)
 
     print("\n[3] Generating English narration (ElevenLabs)...")
     if os.path.exists(audio_path):
@@ -106,12 +105,14 @@ def main():
     if os.path.exists(output_path) and os.path.getsize(output_path) > 1_000_000:
         print(f"  Using existing: {os.path.getsize(output_path)//1024//1024} MB")
     else:
-        segments   = make_timed_segments(script["sections"], dur)
+        segments   = sections_to_segments(script["sections"], dur)
         story_meta = {"title": script["viral_title"], "src": "Lost History"}
         try:
+            # No target_duration: let video match natural audio length (~50s)
+            # for an unhurried cinematic feel.
             create_video(story_meta, script["audio_script"], segments,
                          audio_path, output_path,
-                         section_images=section_images, target_duration=60)
+                         section_images=section_images)
         except Exception as e:
             print(f"  VIDEO ERROR: {e}")
             import traceback; traceback.print_exc()
