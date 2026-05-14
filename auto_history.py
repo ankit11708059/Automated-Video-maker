@@ -1,7 +1,8 @@
 """
 Lost History & Forgotten Mysteries pipeline.
-Runs hourly via GitHub Actions. Generates a fresh, non-duplicate mystery Short
-in English, uploads to YouTube (and Instagram if configured).
+Runs every 1.5 hours via GitHub Actions. Each run produces a fresh, non-duplicate
+mystery Short in English (world-wide topic coverage, randomised visual style),
+uploads to YouTube + Instagram.
 """
 
 import os, sys, json, base64, re
@@ -50,6 +51,15 @@ def _decode_token():
         print("  History YouTube token decoded from env var.")
 
 
+def _used_image_urls(log: list[dict]) -> set:
+    """Collect all photo URLs used in prior videos to avoid reuse."""
+    used = set()
+    for entry in log:
+        for u in entry.get("image_urls", []) or []:
+            used.add(u)
+    return used
+
+
 def main():
     print("=" * 60)
     print("  LOST HISTORY & FORGOTTEN MYSTERIES — AUTO PIPELINE")
@@ -59,33 +69,48 @@ def main():
     _decode_token()
 
     log = _load_log()
-    past_topics = [e["topic_name"] for e in log if e.get("topic_name")]
-    print(f"\n  Past topics covered: {len(past_topics)}")
+    past_topics     = [e["topic_name"] for e in log if e.get("topic_name")]
+    past_regions    = [e["region"]     for e in log if e.get("region")]
+    past_categories = [e["category"]   for e in log if e.get("category")]
+    used_urls       = _used_image_urls(log)
+    print(f"\n  Past topics: {len(past_topics)} | regions: {len(past_regions)} | categories: {len(past_categories)}")
+    print(f"  Used image URLs (dedup pool): {len(used_urls)}")
 
     print("\n[1] Generating fresh mystery via Claude Sonnet...")
     try:
-        script = generate_history_short(past_topics=past_topics)
+        script = generate_history_short(
+            past_topics=past_topics,
+            past_regions=past_regions,
+            past_categories=past_categories,
+        )
     except Exception as e:
         print(f"  ERROR: {e}")
         sys.exit(1)
 
     topic = script["topic_name"]
     if topic.lower() in (t.lower() for t in past_topics):
-        print(f"  WARNING: Claude returned duplicate topic '{topic}' — retrying once...")
-        script = generate_history_short(past_topics=past_topics + [topic])
+        print(f"  WARNING: duplicate topic '{topic}' — retrying once...")
+        script = generate_history_short(
+            past_topics=past_topics + [topic],
+            past_regions=past_regions,
+            past_categories=past_categories,
+        )
         topic = script["topic_name"]
 
     print(f"  Topic    : {topic}")
     print(f"  Title    : {script['viral_title']}")
-    print(f"  Tags     : {len(script['tags'])} tags")
-    print(f"  Query    : {script['pexels_query']}")
+    print(f"  Region/Cat: {script.get('region')} / {script.get('category')}")
 
     slug        = _slugify(topic)
     audio_path  = os.path.join(CACHE_DIR,  f"history_{slug}_audio.mp3")
     output_path = os.path.join(OUTPUT_DIR, f"history_{slug}_short.mp4")
 
-    print("\n[2] Fetching atmospheric background images...")
-    section_images = fetch_history_images(script["pexels_query"], seed=0)
+    print("\n[2] Fetching atmospheric background images (content-matched, dedup'd)...")
+    section_images, picked_urls = fetch_history_images(
+        section_queries=script.get("section_queries", []),
+        themes=script.get("themes"),
+        exclude_urls=used_urls,
+    )
 
     print("\n[3] Generating English narration (ElevenLabs)...")
     if os.path.exists(audio_path):
@@ -101,18 +126,18 @@ def main():
     dur = AudioFileClip(audio_path).duration
     print(f"  Duration: {dur:.1f}s")
 
-    print("\n[4] Rendering video (multiprocessing + ffmpeg)...")
+    print("\n[4] Rendering video (cinematic, randomised style)...")
     if os.path.exists(output_path) and os.path.getsize(output_path) > 1_000_000:
         print(f"  Using existing: {os.path.getsize(output_path)//1024//1024} MB")
     else:
         segments   = sections_to_segments(script["sections"], dur)
         story_meta = {"title": script["viral_title"], "src": "Lost History"}
         try:
-            # No target_duration: let video match natural audio length (~50s)
-            # for an unhurried cinematic feel.
             create_video(story_meta, script["audio_script"], segments,
                          audio_path, output_path,
-                         section_images=section_images)
+                         section_images=section_images,
+                         visual_style=script.get("visual_style"),
+                         topic_seed=topic)
         except Exception as e:
             print(f"  VIDEO ERROR: {e}")
             import traceback; traceback.print_exc()
@@ -147,6 +172,10 @@ def main():
     _save_log({
         "topic_name":  topic,
         "title":       script["viral_title"],
+        "region":      script.get("region"),
+        "category":    script.get("category"),
+        "visual_style": script.get("visual_style"),
+        "image_urls":  picked_urls,
         "yt_url":      yt_url,
         "ig_url":      ig_url,
         "uploaded_at": datetime.now(timezone.utc).isoformat(),
