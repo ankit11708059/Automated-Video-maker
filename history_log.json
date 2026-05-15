@@ -370,5 +370,21 @@
     "yt_url": "https://www.youtube.com/shorts/rEMZHpSA6Jc",
     "ig_url": null,
     "uploaded_at": "2026-05-15T13:31:41.675156+00:00"
+  },
+  {
+    "topic_name": "Jim Thompson Jungle Vanishing",
+    "title": "1967: The CIA Silk King Vanished in 50 Metres of Jungle",
+    "region": "asia_southeast",
+    "category": "vanishing_people",
+    "visual_style": "mystery",
+    "image_urls": [
+      "https://images.pexels.com/photos/5341291/pexels-photo-5341291.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
+      "https://images.pexels.com/photos/30447648/pexels-photo-30447648.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
+      "https://images.pexels.com/photos/31783766/pexels-photo-31783766.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
+      "https://images.pexels.com/photos/10542900/pexels-photo-10542900.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800"
+    ],
+    "yt_url": "https://www.youtube.com/shorts/iOb6CyLIBYA",
+    "ig_url": null,
+    "uploaded_at": "2026-05-15T15:41:17.192392+00:00"
   }
 ]
