@@ -386,5 +386,21 @@
     "yt_url": "https://www.youtube.com/shorts/iOb6CyLIBYA",
     "ig_url": null,
     "uploaded_at": "2026-05-15T15:41:17.192392+00:00"
+  },
+  {
+    "topic_name": "Douglas Mawson Solo Antarctic Survival",
+    "title": "He Survived 99 Days Alone in Antarctica \u2014 But HOW?",
+    "region": "polar_antarctic",
+    "category": "lost_expedition",
+    "visual_style": "discovery",
+    "image_urls": [
+      "https://images.pexels.com/photos/36068039/pexels-photo-36068039.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
+      "https://images.pexels.com/photos/65320/polar-bear-bear-teddy-sleep-65320.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
+      "https://images.pexels.com/photos/14993975/pexels-photo-14993975.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
+      "https://images.pexels.com/photos/16114625/pexels-photo-16114625.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800"
+    ],
+    "yt_url": "https://www.youtube.com/shorts/npNpom7ixIY",
+    "ig_url": null,
+    "uploaded_at": "2026-05-15T16:54:18.753089+00:00"
   }
 ]
