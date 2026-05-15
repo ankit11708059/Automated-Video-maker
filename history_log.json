@@ -434,5 +434,21 @@
     "yt_url": "https://www.youtube.com/shorts/XXYhp1Ub1EA",
     "ig_url": null,
     "uploaded_at": "2026-05-15T19:23:51.458171+00:00"
+  },
+  {
+    "topic_name": "USS Cyclops Vanishing 1918",
+    "title": "306 People Vanished in 1918 | No Wreckage Ever Found",
+    "region": "underwater",
+    "category": "lost_expedition",
+    "visual_style": "mystery",
+    "image_urls": [
+      "https://images.pexels.com/photos/29141332/pexels-photo-29141332.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
+      "https://images.pexels.com/photos/20875975/pexels-photo-20875975.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
+      "https://images.pexels.com/photos/4645982/pexels-photo-4645982.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
+      "https://images.pexels.com/photos/9881533/pexels-photo-9881533.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800"
+    ],
+    "yt_url": "https://www.youtube.com/shorts/ZBCywxePA_c",
+    "ig_url": null,
+    "uploaded_at": "2026-05-15T20:49:21.063029+00:00"
   }
 ]
