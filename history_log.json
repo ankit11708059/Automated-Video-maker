@@ -626,5 +626,21 @@
     "yt_url": "https://www.youtube.com/shorts/o9TXC2i7-nk",
     "ig_url": null,
     "uploaded_at": "2026-05-16T17:37:46.591384+00:00"
+  },
+  {
+    "topic_name": "Percy Fawcett Lost City Z",
+    "title": "1925: He Found The Lost City... Then VANISHED Forever",
+    "region": "south_america",
+    "category": "lost_expedition",
+    "visual_style": "discovery",
+    "image_urls": [
+      "https://images.pexels.com/photos/33229655/pexels-photo-33229655.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
+      "https://images.pexels.com/photos/36109366/pexels-photo-36109366.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
+      "https://images.pexels.com/photos/34246904/pexels-photo-34246904.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
+      "https://images.pexels.com/photos/31613347/pexels-photo-31613347.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800"
+    ],
+    "yt_url": "https://www.youtube.com/shorts/1dEGtkFQ7fE",
+    "ig_url": null,
+    "uploaded_at": "2026-05-16T18:51:55.735030+00:00"
   }
 ]
