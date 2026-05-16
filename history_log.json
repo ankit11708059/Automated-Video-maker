@@ -578,5 +578,21 @@
     "yt_url": "https://www.youtube.com/shorts/uKtEPgOiNB0",
     "ig_url": null,
     "uploaded_at": "2026-05-16T11:39:28.489547+00:00"
+  },
+  {
+    "topic_name": "Beaumont Children Vanishing",
+    "title": "1966: 3 Kids Vanished From a Beach | Nobody Was Ever Charged",
+    "region": "oceania",
+    "category": "vanishing_people",
+    "visual_style": "mystery",
+    "image_urls": [
+      "https://images.pexels.com/photos/34494484/pexels-photo-34494484.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
+      "https://images.pexels.com/photos/31162636/pexels-photo-31162636.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
+      "https://images.pexels.com/photos/31312630/pexels-photo-31312630.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
+      "https://images.pexels.com/photos/14035001/pexels-photo-14035001.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800"
+    ],
+    "yt_url": "https://www.youtube.com/shorts/-wpvdpALlJ0",
+    "ig_url": null,
+    "uploaded_at": "2026-05-16T13:01:22.480425+00:00"
   }
 ]
