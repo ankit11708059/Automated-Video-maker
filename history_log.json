@@ -802,5 +802,21 @@
     "yt_url": "https://www.youtube.com/shorts/wsT26pPbSDg",
     "ig_url": null,
     "uploaded_at": "2026-05-17T17:38:54.751630+00:00"
+  },
+  {
+    "topic_name": "Burke and Wills Expedition Collapse",
+    "title": "They Crossed Australia Then Starved 4 Hours From Safety",
+    "region": "polar_antarctic",
+    "category": "lost_expedition",
+    "visual_style": "discovery",
+    "image_urls": [
+      "https://images.pexels.com/photos/32915179/pexels-photo-32915179.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
+      "https://images.pexels.com/photos/19817756/pexels-photo-19817756.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
+      "https://images.pexels.com/photos/29100257/pexels-photo-29100257.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
+      "https://images.pexels.com/photos/28426591/pexels-photo-28426591.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800"
+    ],
+    "yt_url": "https://www.youtube.com/shorts/byMG2POtwrQ",
+    "ig_url": null,
+    "uploaded_at": "2026-05-17T18:59:51.500559+00:00"
   }
 ]
