@@ -754,5 +754,21 @@
     "yt_url": "https://www.youtube.com/shorts/1FcYS2AT548",
     "ig_url": null,
     "uploaded_at": "2026-05-17T10:23:05.547200+00:00"
+  },
+  {
+    "topic_name": "Kaspar Hauser Mysterious Origins",
+    "title": "The Child They Kept In Darkness \u2014 History Never Solved This",
+    "region": "europe",
+    "category": "unsolved_crime",
+    "visual_style": "mystery",
+    "image_urls": [
+      "https://images.pexels.com/photos/18737970/pexels-photo-18737970.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
+      "https://images.pexels.com/photos/27541585/pexels-photo-27541585.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
+      "https://images.pexels.com/photos/21274126/pexels-photo-21274126.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
+      "https://images.pexels.com/photos/11127342/pexels-photo-11127342.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800"
+    ],
+    "yt_url": "https://www.youtube.com/shorts/3Mri7WL79ko",
+    "ig_url": null,
+    "uploaded_at": "2026-05-17T11:46:41.190950+00:00"
   }
 ]
