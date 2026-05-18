@@ -962,5 +962,21 @@
     "yt_url": "https://www.youtube.com/shorts/r2LedGt9-Oo",
     "ig_url": null,
     "uploaded_at": "2026-05-18T17:34:24.986777+00:00"
+  },
+  {
+    "topic_name": "Kaspar Hauser Mysterious Origins",
+    "title": "The Boy Who Was NEVER Supposed to Exist | Kaspar Hauser",
+    "region": "europe",
+    "category": "vanishing_people",
+    "visual_style": "mystery",
+    "image_urls": [
+      "https://images.pexels.com/photos/22699866/pexels-photo-22699866.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
+      "https://images.pexels.com/photos/29865455/pexels-photo-29865455.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
+      "https://images.pexels.com/photos/37354404/pexels-photo-37354404.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
+      "https://images.pexels.com/photos/30278500/pexels-photo-30278500.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800"
+    ],
+    "yt_url": "https://www.youtube.com/shorts/u_R02njcZmE",
+    "ig_url": null,
+    "uploaded_at": "2026-05-18T19:32:03.266497+00:00"
   }
 ]
