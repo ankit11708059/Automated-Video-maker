@@ -2450,5 +2450,21 @@
     "yt_url": "https://www.youtube.com/shorts/18LgFpdJbH0",
     "ig_url": null,
     "uploaded_at": "2026-07-15T05:26:20.189743+00:00"
+  },
+  {
+    "topic_name": "Moa Hunter Vanishing New Zealand",
+    "title": "1868: The Scout Vanished & Left Only a Spinning Compass",
+    "region": "oceania",
+    "category": "lost_expedition",
+    "visual_style": "discovery",
+    "image_urls": [
+      "https://images.pexels.com/photos/33045304/pexels-photo-33045304.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
+      "https://images.pexels.com/photos/27872019/pexels-photo-27872019.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
+      "https://images.pexels.com/photos/2496774/pexels-photo-2496774.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
+      "https://images.pexels.com/photos/34922417/pexels-photo-34922417.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800"
+    ],
+    "yt_url": "https://www.youtube.com/shorts/62jR1pcFF2w",
+    "ig_url": null,
+    "uploaded_at": "2026-07-15T07:55:56.227286+00:00"
   }
 ]
